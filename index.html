@@ -1,14 +1,16 @@
 <!doctype html>
 <html ng-app="githubViewer">
-<head>
-	<title>{{title}}</title>
+<head ng-controller="headController">
 	<script type="text/javascript" src="angular-1.5.5/angular.min.js"></script>
 	<script type="text/javascript" src="angular-1.5.5/angular-route.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="page.js"></script>
 	<script type="text/javascript" src="MainController.js"></script>
 	<script type="text/javascript" src="UserController.js"></script>
 	<script type="text/javascript" src="RepoController.js"></script>
+	<script type="text/javascript" src="headController.js"></script>
 	<script type="text/javascript" src="github.js"></script>
+	<title>{{title}}</title>
 </head>
 <body>
 	<h1>Github Viewer</h1>

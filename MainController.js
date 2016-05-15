@@ -1,7 +1,7 @@
 (function() {
 	var app = angular.module("githubViewer");
 
-	var MainController = function ($scope, $interval, $location) {
+	var MainController = function ($scope, $interval, $location, page) {
 
 		var decrementCountDown = function() {
 			$scope.countdown -= 1;
@@ -24,9 +24,9 @@
 
 		$scope.username = "Angular";
 		$scope.countdown = 5;
-		$scope.title = "Search - Github Viewer";
+		page.setTitle("Search");
 		startCountDown();
 	};
 
-	app.controller("MainController", ["$scope", "$interval", "$location", MainController]);
+	app.controller("MainController", ["$scope", "$interval", "$location", "page", MainController]);
 }());

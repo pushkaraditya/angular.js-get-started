@@ -1,7 +1,7 @@
 (function() {
 	var app = angular.module("githubViewer");
 
-	var UserController = function ($scope, github, $routeParams) {
+	var UserController = function ($scope, github, $routeParams, page) {
 		var onUserComplete = function(data) {
 			$scope.user = data;
 			github.getRepos($scope.user).then(onReposComplete, onError);
@@ -17,9 +17,10 @@
 
 		$scope.username = $routeParams.username;
 		$scope.repoSortOrder = "-stargazers_count";
-		$scope.title = $scope.username + " - Github Viewer";
+		page.setTitle($scope.username + " - Github Viewer");
+		// $scope.title = $scope.username + " - Github Viewer";
 		github.getUser($scope.username).then(onUserComplete, onError);
 	};
 
-	app.controller("UserController", ["$scope", "github", "$routeParams", UserController]);
+	app.controller("UserController", ["$scope", "github", "$routeParams", "page", UserController]);
 }());
